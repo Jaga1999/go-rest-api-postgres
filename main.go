@@ -8,7 +8,6 @@ import (
 	"github.com/Jaga1999/go-rest-api-postgres/models"
 	"github.com/Jaga1999/go-rest-api-postgres/storage"
 	"github.com/gofiber/fiber/v2"
-	"github.com/joho/godotenv"
 	"gorm.io/gorm"
 )
 
@@ -120,10 +119,6 @@ func (r *Repository) setupRouter(app *fiber.App) {
 }
 
 func main() {
-	err := godotenv.Load(".env")
-	if err != nil {
-		log.Fatal(err)
-	}
 
 	config := &storage.Config{
 		Host:     os.Getenv("DB_HOST"),
