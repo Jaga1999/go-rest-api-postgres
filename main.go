@@ -141,5 +141,12 @@ func main() {
 
 	app := fiber.New()
 	r.setupRouter(app)
-	app.Listen("0.0.0.0:8080")
+
+	port := os.Getenv("PORT")
+
+	if port == "" {
+		port = "3000"
+	}
+
+	app.Listen("0.0.0.0:" + port)
 }
